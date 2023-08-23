@@ -11,6 +11,7 @@ def run_inference(layers, inp_lh, inp_rh, inp_obj):
             betas=inp_lh["betas"],
             transl=inp_lh["transl"],
         )
+        assert out_lh.joints.shape[1] == 21
         # use MANO model for right hand
         out_rh = layers["right"](
             global_orient=inp_rh["global_orient"],
